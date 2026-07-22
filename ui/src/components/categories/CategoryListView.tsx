@@ -7,6 +7,7 @@ import AssetListView from "@/components/common/AssetListView";
 type CategoryListViewProps = {
   categories: Category[];
   onAdd: () => void;
+  onClick?: (category: Category) => void;
 };
 
 const columnHelper = createColumnHelper<Category>();
@@ -26,8 +27,8 @@ const columns = [
   }),
 ];
 
-const CategoryListView = ({ categories, onAdd }: CategoryListViewProps) => {
-  return <AssetListView data={categories} columns={columns} onAdd={onAdd} filterableColumns={["name", "description"]} strongHeaderStyle alternateBackgroundColor />;
+const CategoryListView = ({ categories, onAdd, onClick }: CategoryListViewProps) => {
+  return <AssetListView data={categories} columns={columns} onAdd={onAdd} onClick={onClick} filterableColumns={["name", "description"]} strongHeaderStyle alternateBackgroundColor />;
 };
 
 export default CategoryListView;
